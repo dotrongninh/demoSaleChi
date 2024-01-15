@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrangAdmin"
+    android:orientation="vertical"
+    android:background="#FFFDE7">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#2ecc71">
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp"
+            android:contentDescription="Hình đại diện"
+            android:src="@drawable/default_profile_image" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toEndOf="@id/profileImage"
+            android:layout_marginTop="60dp">
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="vanh;g"
+                android:textSize="24sp"
+                android:layout_below="@id/profileImage"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:textColor="#FFFDE7"/>
+            <TextView
+                android:id="@+id/membershipLabel"
+                android:layout_width="107dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profileName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_bg"
+                android:text="Admin"
+                android:gravity="center"
+                android:textColor="#2ecc71"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/editDonHangDaMua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Update sản phẩm"
+        android:drawableLeft="@drawable/icon_update"
+        android:paddingStart="20dp"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:fontFamily="@font/svn_aleo"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:textAllCaps="false"
+        android:gravity="bottom"
+        android:drawableRight="@drawable/icon_next"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:id="@+id/editGioHangCuaToi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/icon_xemthongtinkh"
+        android:drawableRight="@drawable/icon_next"
+        android:fontFamily="@font/svn_aleo"
+        android:gravity="bottom"
+        android:paddingStart="20dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:text=" Xem thông tin khách hàng"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+    <Button
+        android:id="@+id/editKhuyenMai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/icon_xulydonhang"
+        android:drawableRight="@drawable/icon_next"
+        android:fontFamily="@font/svn_aleo"
+        android:gravity="left"
+        android:paddingStart="20dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:text=" Xử lý đơn hàng (56)"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#00BF63"
+        android:gravity="center"
+        android:layout_marginTop="291dp">
+        <ImageButton
+            android:id="@+id/button1"
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon_button_trangchu"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Button 1"
+            android:layout_margin="8dp"/>
+        <ImageButton
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:src="@drawable/icon_button_sale"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Button 2"
+            android:layout_margin="8dp"
+            android:paddingStart="15dp"/>
+        <ImageButton
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:src="@drawable/icon_button_notification"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Button 3"
+            android:layout_margin="8dp"
+            android:paddingStart="15dp"/>
+        <ImageButton
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:src="@drawable/icon_button_giohang"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Button 4"
+            android:layout_margin="8dp"
+            android:paddingStart="15dp"/>
+
+        <ImageButton
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:src="@drawable/icon_button_myself"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Button 5"
+            android:layout_margin="8dp"
+            android:paddingStart="15dp"/>
+    </LinearLayout>
+</LinearLayout>
