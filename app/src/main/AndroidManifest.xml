@@ -23,7 +23,7 @@
             android:name=".TrangDangNhap"
             android:exported="false" />
         <activity
-            android:name=".TrangDangKy"
+            android:name=".TrangChu"
             android:exported="false" />
         <activity
             android:name=".TrangXemThongTinKH"
@@ -38,7 +38,7 @@
             android:name=".TrangAdmin"
             android:exported="false" />
         <activity
-            android:name=".TrangChu"
+            android:name=".TrangDangKy"
             android:exported="true">
             <intent-filter>
                     <action android:name="android.intent.action.MAIN" />

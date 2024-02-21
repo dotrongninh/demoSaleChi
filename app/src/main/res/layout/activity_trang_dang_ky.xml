@@ -16,7 +16,7 @@
         android:textColor="#2ecc71"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/svn_servetica"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="25dp"/>
 
     <EditText
@@ -25,13 +25,13 @@
         android:layout_height="48dp"
         android:layout_below="@id/textDangKy"
         android:layout_marginTop="16dp"
-        android:hint="Nhập tài khoản của bạn"
+        android:hint="Nhập email của bạn"
         android:padding="10dp"
         android:layout_marginStart="14dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp" />
     <EditText
-        android:id="@+id/editHo"
+        android:id="@+id/editHoTen"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_below="@id/editTextUsername"
@@ -41,30 +41,41 @@
         android:layout_marginStart="14dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp" />
-
+    <EditText
+        android:id="@+id/editSDT"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/editHoTen"
+        android:layout_marginTop="8dp"
+        android:hint="Nhập SDT của bạn"
+        android:padding="10dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp" />
     <LinearLayout
         android:id="@+id/editNgaysinh"
         android:layout_width="361dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editHo"
+        android:layout_below="@id/editSDT"
         android:layout_marginStart="14dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="2dp"
         android:orientation="horizontal">
+
         <EditText
             android:id="@+id/editChonNgaysinh"
             android:layout_width="320dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:clickable="true"
             android:focusable="true"
-            android:text=" Chọn ngày sinh"
+            android:hint=" Chọn ngày sinh"
             android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/datePickerImageView"
+        <ImageButton
+            android:id="@+id/buttonDatePicker"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="11dp"
@@ -98,8 +109,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:id="@+id/textViewRegister"
+    <Button
+        android:id="@+id/buttonDangNhap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đăng nhập"
@@ -111,19 +122,19 @@
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonDangKy"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/textViewRegister"
+        android:layout_below="@id/buttonDangNhap"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="18dp"
         android:backgroundTint="#2ecc71"
         android:text="Đăng ký" />
 
     <Button
         android:id="@+id/buttonContinueWithGoogle"
-        android:layout_below="@id/buttonLogin"
+        android:layout_below="@id/buttonDangKy"
         android:layout_width="361dp"
         android:layout_height="48dp"
         android:layout_marginStart="18dp"
