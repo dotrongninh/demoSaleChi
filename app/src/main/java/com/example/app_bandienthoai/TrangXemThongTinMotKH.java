@@ -23,9 +23,9 @@ public class TrangXemThongTinMotKH extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
-        sharedPreferences= getSharedPreferences("com.example.sharedprerences", Context.MODE_PRIVATE);
+       // sharedPreferences= getSharedPreferences("com.example.sharedprerences", Context.MODE_PRIVATE);
         super.onCreate(savedInstanceState);
-        String myId = sharedPreferences.getString("id", "-1");
+      //  String myId = sharedPreferences.getString("id", "-1");
 
   // String x = "5";
 
@@ -33,7 +33,7 @@ public class TrangXemThongTinMotKH extends AppCompatActivity {
         String id = i.getStringExtra("id");
 
         setContentView(R.layout.activity_trang_xem_thong_tin_mot_kh);
-        usersRef = FirebaseDatabase.getInstance().getReference("Users").child(myId);
+        usersRef = FirebaseDatabase.getInstance().getReference("Users").child(id);
         TextView txtHoTen = findViewById(R.id.textViewSuaTen);
         txtEmail=findViewById(R.id.textViewEmail);
         txtSDT=findViewById(R.id.textViewSDT);
@@ -41,7 +41,8 @@ public class TrangXemThongTinMotKH extends AppCompatActivity {
         txtMember = findViewById(R.id.membershipLabel);
         txtProFile = findViewById(R.id.profileName);
 
-        if(myId!="-1") txtMember.setText("USER");
+        //if(id=="-1")
+         txtMember.setText("USER");
 
 
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {

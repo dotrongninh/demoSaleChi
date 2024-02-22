@@ -51,7 +51,7 @@
         </LinearLayout>
     </RelativeLayout>
     <Button
-        android:id="@+id/editDonHangDaMua"
+        android:id="@+id/btUpdateSp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=" Update sản phẩm"
@@ -68,7 +68,7 @@
         android:drawableRight="@drawable/icon_next"
         android:layout_marginTop="10dp"/>
     <Button
-        android:id="@+id/editGioHangCuaToi"
+        android:id="@+id/btXemTTKhachHang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -84,7 +84,7 @@
         android:textColor="@color/black"
         android:textSize="20dp" />
     <Button
-        android:id="@+id/editKhuyenMai"
+        android:id="@+id/btDuyetDonHang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"

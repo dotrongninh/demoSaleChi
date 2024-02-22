@@ -77,14 +77,23 @@ public class TrangDangNhap extends AppCompatActivity {
 
 // Lưu thay đổi
                         editor.commit();
-
-                        Intent i =new Intent(TrangDangNhap.this, TrangMyProfile.class);
-                        i.putExtra("id",ID);
-                        startActivity(i);
+                        if(edTK.getText().toString().equals("-1")){
+                            Intent i =new Intent(TrangDangNhap.this, TrangAdmin.class);
+                            //i.putExtra("id",ID);
+                            startActivity(i);
+                        }
+                        else {
+                            Intent i = new Intent(TrangDangNhap.this, TrangMyProfile.class);
+                            i.putExtra("id", ID);
+                            startActivity(i);
+                        }
 
                     }
-                    else { SharedPreferences sharedPreferences = getSharedPreferences("com.example.sharedprerences", Context.MODE_PRIVATE);
-                        txtCheck.setText(sharedPreferences.getString("id", "-1"));}
+                    else {
+                        //SharedPreferences sharedPreferences = getSharedPreferences("com.example.sharedprerences", Context.MODE_PRIVATE);
+                        //txtCheck.setText(sharedPreferences.getString("id", "-1"));
+                        txtCheck.setText("Sai mật khẩu");
+                    }
 
                 } else {
                     // Danh sách mặt hàng trống
