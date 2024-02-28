@@ -97,6 +97,32 @@
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:background="@color/white"/>
+            <TextView
+                android:id="@+id/textViewEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/svn_aleo"
+                android:paddingStart="90dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="11dp"
+                android:text="Email: njkngok@gmail.com"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:background="@color/white"/>
+            <TextView
+                android:id="@+id/textViewNgaySinh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/svn_aleo"
+                android:paddingStart="90dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="11dp"
+                android:text="Ngày sinh: 28/09/2003"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:background="@color/white"/>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
