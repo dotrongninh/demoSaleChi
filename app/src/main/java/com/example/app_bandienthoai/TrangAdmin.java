@@ -16,12 +16,13 @@ import java.util.Date;
 import models.User;
 
 public class TrangAdmin extends AppCompatActivity {
-    Button btUpdateSP,btXemTTKhachHang,btDuyetDonHang;
+    Button btUpdateSP, btXemTTKhachHang, btDuyetDonHang;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_admin);
-        btXemTTKhachHang=findViewById(R.id.btXemTTKhachHang);
+        btXemTTKhachHang = findViewById(R.id.btXemTTKhachHang);
         btXemTTKhachHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,9 +31,20 @@ public class TrangAdmin extends AppCompatActivity {
             }
         });
 
+        mapping_client();
 
-// ...
+        this.btUpdateSP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(TrangAdmin.this, TrangUpdateSP.class);
 
+                startActivity(i);
+            }
+        });
     }
 
+
+    private void mapping_client() {
+        this.btUpdateSP = findViewById(R.id.btUpdateSp);
+    }
 }
