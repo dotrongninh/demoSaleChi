@@ -83,7 +83,7 @@ public class TrangDangNhap extends AppCompatActivity {
                             startActivity(i);
                         }
                         else {
-                            Intent i = new Intent(TrangDangNhap.this, TrangMyProfile.class);
+                            Intent i = new Intent(TrangDangNhap.this, TrangChu.class);
                             i.putExtra("id", ID);
                             startActivity(i);
                         }

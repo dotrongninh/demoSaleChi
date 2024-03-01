@@ -118,4 +118,21 @@ public class Product {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", sold=" + sold +
+                ", warehouse=" + warehouse +
+                ", price=" + price +
+                ", price_sale=" + price_sale +
+                ", image='" + image + '\'' +
+                ", category='" + category + '\'' +
+                ", brand='" + brand + '\'' +
+                ", color='" + color + '\'' +
+                '}';
+    }
 }
