@@ -30,7 +30,7 @@
                 android:id="@+id/profileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vanh;g"
+                android:text="vanhlg"
                 android:textSize="24sp"
                 android:layout_below="@id/profileImage"
                 android:layout_centerHorizontal="true"
@@ -105,7 +105,7 @@
         android:orientation="horizontal"
         android:background="#00BF63"
         android:gravity="center"
-        android:layout_marginTop="291dp">
+        android:layout_marginTop="300dp">
         <ImageButton
             android:id="@+id/button1"
             android:layout_width="48dp"
