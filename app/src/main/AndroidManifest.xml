@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,18 +14,6 @@
         android:theme="@style/Theme.App_BanDienThoai"
         tools:targetApi="31">
         <activity
-            android:name=".TrangCTSP"
-            android:exported="false" />
-        <activity
-            android:name=".TrangTimKiem"
-            android:exported="false" />
-        <activity
-            android:name=".TrangKhuyenMai"
-            android:exported="false" />
-        <activity
-            android:name=".TrangThongBao"
-            android:exported="false" />
-        <activity
             android:name=".TrangXemThongTinMotKH"
             android:exported="false" />
         <activity
@@ -37,13 +24,7 @@
             android:exported="false" />
         <activity
             android:name=".TrangChu"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".TrangXemThongTinKH"
             android:exported="false" />
@@ -58,7 +39,13 @@
             android:exported="false" />
         <activity
             android:name=".TrangDangKy"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

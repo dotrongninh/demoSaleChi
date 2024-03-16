@@ -58,44 +58,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="   Thông tin cá nhân"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/icon_profile"
+                android:paddingStart="20dp"
+                android:textSize="20dp"
+                android:background="@color/white"
+                android:fontFamily="@font/svn_aleo"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:id="@+id/ThongTinCaNhan"
+                android:textStyle="bold"
+                android:textColor="@color/black">
+            </TextView>
+            <ImageButton
+                android:id="@+id/btEditThongTin"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_toEndOf="@id/ThongTinCaNhan"
+                android:paddingStart="110dp"
+                android:background="@color/white"
+                android:src="@drawable/icon_edit"/>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white">
-                <TextView
+                <EditText
+                    android:id="@+id/textViewSuaTen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="   Thông tin cá nhân"
-                    android:layout_marginTop="10dp"
-                    android:drawableLeft="@drawable/icon_profile"
-                    android:paddingStart="20dp"
-                    android:textSize="20dp"
-                    android:background="@color/white"
-                    android:fontFamily="@font/svn_aleo"
-                    android:paddingTop="7dp"
-                    android:paddingBottom="7dp"
-                    android:id="@+id/ThongTinCaNhan"
-                    android:textStyle="bold"
-                    android:textColor="@color/black">
-                </TextView>
-                <ImageButton
-                    android:id="@+id/btEditThongTin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:layout_toEndOf="@id/ThongTinCaNhan"
-                    android:paddingStart="140dp"
-                    android:background="@color/white"
-                    android:src="@drawable/icon_edit"/>
-                </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@color/white">
-                <TextView
-                    android:id="@+id/SuaTen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Họ tên: "
+                    android:text="Họ tên: Đỗ Trọng Ninh"
                     android:textSize="17sp"
                     android:backgroundTint="@color/white"
                     android:paddingStart="90dp"
@@ -103,36 +98,21 @@
                     android:paddingBottom="11dp"
                     android:fontFamily="@font/svn_aleo"
                     android:textColor="@color/black"/>
-                <EditText
-                    android:id="@+id/textViewSuaTen"
+                <ImageButton
+                    android:id="@+id/editSuaTen"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Đỗ Trọng Ninh"
-                    android:textSize="17sp"
-                    android:backgroundTint="@color/white"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="11dp"
-                    android:fontFamily="@font/svn_aleo"
-                    android:textColor="@color/black"
-                    android:layout_toEndOf="@id/SuaTen"/>
+                    android:layout_height="48dp"
+                    android:layout_toEndOf="@id/textViewSuaTen"
+                    android:paddingStart="110dp"
+                    android:background="@color/white"
+                    android:src="@drawable/icon_edit"/>
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white">
-                <TextView
-                    android:id="@+id/SDT"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:backgroundTint="@color/white"
-                    android:fontFamily="@font/svn_aleo"
-                    android:paddingStart="90dp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="11dp"
-                    android:text="Số điện thoại: "
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
+
                 <EditText
                     android:id="@+id/textViewSDT"
                     android:layout_width="wrap_content"
@@ -140,20 +120,29 @@
                     android:layout_alignParentBottom="true"
                     android:backgroundTint="@color/white"
                     android:fontFamily="@font/svn_aleo"
+                    android:paddingStart="90dp"
                     android:paddingTop="15dp"
                     android:paddingBottom="11dp"
-                    android:text="0123456789"
+                    android:text="Số điện thoại: 0123456789"
                     android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:layout_toEndOf="@id/SDT"/>
+                    android:textSize="17sp" />
+
+                <ImageButton
+                    android:id="@+id/editSDT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_toEndOf="@id/textViewSDT"
+                    android:background="@color/white"
+                    android:paddingStart="90dp"
+                    android:src="@drawable/icon_edit" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white">
 
-                <TextView
-                    android:id="@+id/NgaySinh"
+                <EditText
+                    android:id="@+id/textViewNgaySinh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -162,22 +151,18 @@
                     android:paddingStart="90dp"
                     android:paddingTop="15dp"
                     android:paddingBottom="11dp"
-                    android:text="Ngày sinh: "
+                    android:text="Ngày sinh: 28/09/2003"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
-                <EditText
-                    android:id="@+id/textViewNgaySinh"
+
+                <ImageButton
+                    android:id="@+id/editNgaysinh"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:backgroundTint="@color/white"
-                    android:fontFamily="@font/svn_aleo"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="11dp"
-                    android:text="28/09/2003"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:layout_toEndOf="@id/NgaySinh"/>
+                    android:layout_height="48dp"
+                    android:layout_toEndOf="@id/textViewNgaySinh"
+                    android:background="@color/white"
+                    android:paddingStart="90dp"
+                    android:src="@drawable/icon_edit" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -194,6 +179,14 @@
                     android:paddingStart="90dp"
                     android:fontFamily="@font/svn_aleo"
                     android:textColor="@color/black"/>
+                <ImageButton
+                    android:id="@+id/editDiaChi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_toEndOf="@id/textViewDiaChi"
+                    android:paddingStart="67dp"
+                    android:background="@color/white"
+                    android:src="@drawable/icon_edit"/>
                 <EditText
                     android:id="@+id/textViewDiaChiMĐ"
                     android:layout_width="wrap_content"
