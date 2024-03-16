@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import adapters.UserAdapter;
 import models.User;
 import models.Voucher;
 

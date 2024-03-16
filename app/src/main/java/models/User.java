@@ -12,6 +12,27 @@ public class User {
     private String phone;
     private ArrayList<Voucher> vouchers;
 
+    private ArrayList<User_Notification> user_notifications;
+
+    public ArrayList<User_Notification> getUser_notifications() {
+        return user_notifications;
+    }
+
+    public void setUser_notifications(ArrayList<User_Notification> user_notifications) {
+        this.user_notifications = user_notifications;
+    }
+
+    public User(String id, String name, String email, String password, Date date_of_birth, String phone, ArrayList<Voucher> vouchers, ArrayList<User_Notification> user_notifications) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.date_of_birth = date_of_birth;
+        this.phone = phone;
+        this.vouchers = vouchers;
+        this.user_notifications = user_notifications;
+    }
+
     public User(String id, String name, String email, String password, Date date_of_birth, String phone, ArrayList<Voucher> vouchers) {
         this.id = id;
         this.name = name;

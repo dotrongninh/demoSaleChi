@@ -31,6 +31,7 @@ import java.util.Locale;
 
 import models.Student;
 import models.User;
+import models.User_Notification;
 import models.Voucher;
 
 public class TrangDangKy extends AppCompatActivity {
@@ -130,14 +131,23 @@ public class TrangDangKy extends AppCompatActivity {
                     e.printStackTrace();
                     // Xử lý khi có lỗi trong quá trình chuyển đổi
                 }
+                Date date_create_user = new Date();
+                ArrayList<User_Notification> user_notifications=new ArrayList<>();
+                User_Notification u_ntf = new User_Notification("1","Bạn mới","Chào Mừng bạn đến với ứng dụng của chúng tôi",date_create_user);
+                user_notifications.add(u_ntf);
+                User_Notification u_ntf2 = new User_Notification("2","Giảm 100k","Chúc Mừng bạn nhận được voucher giảm 100K cho đơn từ 0đ",date_create_user);
+                user_notifications.add(u_ntf2);
                 Date date = new Date(Integer.parseInt(ngaySinh.substring(6,10)),Integer.parseInt(ngaySinh.substring(3,5)),Integer.parseInt(ngaySinh.substring(0,2)));
                 ArrayList<Voucher> arrayList =new ArrayList<>();
                 Voucher voucher=new Voucher("1","New User","Chao mung ban moi","image",100f,0f);
+
                 arrayList.add(voucher);
-                User user = new User(idUser,hoTen,username, matKhau,date,SDT,arrayList);
+                User user = new User(idUser,hoTen,username, matKhau,date,SDT,arrayList,user_notifications);
 
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
+//                DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference("Vouchers");
+//                databaseReference2.setValue(arrayList);
 
                 //String studentId = databaseReference.push().getKey();
                 databaseReference.child(idUser).setValue(user);

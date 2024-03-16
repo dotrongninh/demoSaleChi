@@ -24,6 +24,7 @@ public class TrangDangNhap extends AppCompatActivity {
     String ID; int frontId;
     EditText edTK,edMK;
 
+
     private DatabaseReference usersRef;
     @Override
 
@@ -36,8 +37,18 @@ public class TrangDangNhap extends AppCompatActivity {
         edTK = findViewById(R.id.editTextUsername) ;
          edMK = findViewById(R.id.editTextPassword);
         Button btDangNhap = findViewById(R.id.buttonLogin);
+        Button btDangKy = findViewById(R.id.textViewRegister);
+
+
         txtCheck = findViewById(R.id.textViewcheckDN);
         usersRef = FirebaseDatabase.getInstance().getReference("Users");
+        btDangKy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i =new Intent(TrangDangNhap.this, TrangDangKy.class);
+                startActivity(i);
+            }
+        });
         btDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
