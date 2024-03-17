@@ -25,15 +25,13 @@
                 <ImageView
                     android:id="@+id/image_product_first"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:src="@drawable/demoanhdienthoai" />
+                    android:layout_height="200dp" />
 
                 <TextView
                     android:id="@+id/name_product_first"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Galaxy A72 4G"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -43,7 +41,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="2.499.000 đ"
                     android:textColor="#FF0000"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -72,15 +69,13 @@
                 <ImageView
                     android:id="@+id/image_product_second"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:src="@drawable/demoanhdienthoai" />
+                    android:layout_height="200dp" />
 
                 <TextView
                     android:id="@+id/name_product_second"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Galaxy A72 4G"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -90,7 +85,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="2.499.000 đ"
                     android:textColor="#FF0000"
                     android:textSize="15dp"
                     android:textStyle="bold" />

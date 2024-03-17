@@ -28,7 +28,7 @@
                     android:layout_height="90dp">
 
                     <EditText
-                        android:id="@+id/membershipLabel"
+                        android:id="@+id/edit_text_search_value"
                         android:layout_width="140dp"
                         android:layout_height="48dp"
                         android:layout_centerVertical="true"
@@ -42,6 +42,7 @@
                         android:textSize="16sp" />
 
                     <ImageButton
+                        android:id="@+id/image_button_search"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_marginStart="118dp"
@@ -55,7 +56,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="30dp"
-                        android:layout_toEndOf="@id/membershipLabel"
+                        android:layout_toEndOf="@id/edit_text_search_value"
                         android:gravity="end"
                         android:text="dotrongninhdz"
                         android:textColor="#FFFDE7"
