@@ -13,6 +13,7 @@
         app:cardCornerRadius="5dp">
 
         <FrameLayout
+            android:id="@+id/scope_product_first"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -57,6 +58,7 @@
         app:cardCornerRadius="5dp">
 
         <FrameLayout
+            android:id="@+id/scope_product_second"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

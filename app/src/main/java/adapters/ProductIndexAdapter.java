@@ -1,16 +1,19 @@
 package adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 
 import com.example.app_bandienthoai.R;
+import com.example.app_bandienthoai.TrangCTSP;
 
 import java.util.List;
 
@@ -43,6 +46,18 @@ public class ProductIndexAdapter extends ArrayAdapter<Product> {
         ImageView image_product_first = row_view.findViewById(R.id.image_product_first);
         TextView name_product_first = row_view.findViewById(R.id.name_product_first);
         TextView price_product_first = row_view.findViewById(R.id.price_product_first);
+        FrameLayout scope_product_first = row_view.findViewById(R.id.scope_product_first);
+
+        scope_product_first.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TrangCTSP.class);
+
+                intent.putExtra("product_id", product_first.getId());
+
+                context.startActivity(intent);
+            }
+        });
 
         Glide.with(getContext()).
                 load(product_first.getImage())
@@ -55,6 +70,19 @@ public class ProductIndexAdapter extends ArrayAdapter<Product> {
             ImageView image_product_second = row_view.findViewById(R.id.image_product_second);
             TextView name_product_second = row_view.findViewById(R.id.name_product_second);
             TextView price_product_second = row_view.findViewById(R.id.price_product_second);
+            FrameLayout scope_product_second = row_view.findViewById(R.id.scope_product_second);
+
+            Product _second = product_sercond;
+            scope_product_second.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, TrangCTSP.class);
+
+                    intent.putExtra("product_id", _second.getId());
+
+                    context.startActivity(intent);
+                }
+            });
 
             Glide.with(getContext()).
                     load(product_sercond.getImage())

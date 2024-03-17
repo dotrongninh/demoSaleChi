@@ -1,5 +1,7 @@
 package models;
 
+import org.checkerframework.checker.units.qual.C;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,6 +20,9 @@ public class User {
         return user_notifications;
     }
 
+    private Cart cart;
+
+
     public void setUser_notifications(ArrayList<User_Notification> user_notifications) {
         this.user_notifications = user_notifications;
     }
@@ -31,6 +36,7 @@ public class User {
         this.phone = phone;
         this.vouchers = vouchers;
         this.user_notifications = user_notifications;
+        this.cart = new Cart();
     }
 
     public User(String id, String name, String email, String password, Date date_of_birth, String phone, ArrayList<Voucher> vouchers) {
@@ -41,6 +47,7 @@ public class User {
         this.date_of_birth = date_of_birth;
         this.phone = phone;
         this.vouchers = vouchers;
+        this.cart = new Cart();
     }
 
     public User() {
@@ -103,4 +110,11 @@ public class User {
         this.vouchers = vouchers;
     }
 
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 }
