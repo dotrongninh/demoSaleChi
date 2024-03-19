@@ -34,6 +34,7 @@ public class TrangXemThongTinKH extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_xem_thong_tin_kh);
+        getSupportActionBar().hide();
         usersRef = FirebaseDatabase.getInstance().getReference("Users");
 
         listViewUsers = findViewById(R.id.listViewKH);

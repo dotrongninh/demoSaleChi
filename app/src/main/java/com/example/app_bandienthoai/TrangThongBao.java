@@ -47,7 +47,7 @@ public class TrangThongBao extends AppCompatActivity {
         });
         sharedPreferences= getSharedPreferences("com.example.sharedprerences", Context.MODE_PRIVATE);
         String myId = sharedPreferences.getString("id", "-1");
-
+        getSupportActionBar().hide();
         usersRef = FirebaseDatabase.getInstance().getReference("Users").child(myId).child("user_notifications");
         listViewNotifications=findViewById(R.id.thongbaocanhan);
 

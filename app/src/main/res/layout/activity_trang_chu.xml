@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TrangChu">
+    tools:context=".TrangChu"
+    android:background="#FFFDE7">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -114,7 +115,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="65dp"
         android:layout_alignParentBottom="true"
         android:background="#00BF63"
         android:gravity="center"

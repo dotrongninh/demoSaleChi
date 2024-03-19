@@ -22,6 +22,7 @@ public class TrangAdmin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_admin);
+        getSupportActionBar().hide();
         btXemTTKhachHang = findViewById(R.id.btXemTTKhachHang);
         btXemTTKhachHang.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -34,7 +34,7 @@ public class TrangUpdateSP extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_update_sp);
-
+        getSupportActionBar().hide();
         mapping_client();
 
         DatabaseReference products_ref = reference.getProducts();

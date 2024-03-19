@@ -15,6 +15,18 @@
         android:theme="@style/Theme.App_BanDienThoai"
         tools:targetApi="31">
         <activity
+            android:name=".TrangDuyetDonHang"
+            android:exported="false" />
+        <activity
+            android:name=".TrangXemDHdamua"
+            android:exported="false" />
+        <activity
+            android:name=".TrangMuaHang"
+            android:exported="false" />
+        <activity
+            android:name=".TrangGioHang"
+            android:exported="false" />
+        <activity
             android:name=".TrangCTSP"
             android:exported="false" />
         <activity

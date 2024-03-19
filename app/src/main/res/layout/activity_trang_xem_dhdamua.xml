@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TrangXemThongTinMotKH"
+    tools:context=".TrangXemDHdamua"
     android:background="#FFFDE7">
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
                     android:gravity="center"
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"
-                    android:text="Admin"
+                    android:text="Thành viên"
                     android:textColor="#2ecc71"
                     android:textSize="16sp" />
                 <TextView
@@ -52,106 +53,12 @@
                 android:contentDescription="Hình đại diện"
                 android:src="@drawable/default_profile_image" />
         </RelativeLayout>
-        <LinearLayout
+        <ListView
+            android:id="@+id/thongbaocanhan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="   Thông tin cá nhân"
-                android:layout_marginTop="10dp"
-                android:drawableLeft="@drawable/icon_profile"
-                android:paddingStart="20dp"
-                android:textSize="20dp"
-                android:background="@color/white"
-                android:fontFamily="@font/svn_aleo"
-                android:paddingTop="7dp"
-                android:paddingBottom="7dp"
-                android:id="@+id/ThongTinCaNhan"
-                android:textStyle="bold"
-                android:textColor="@color/black">
-            </TextView>
-            <TextView
-                android:id="@+id/textViewSuaTen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Họ tên: Đỗ Trọng Ninh"
-                android:textSize="17sp"
-                android:paddingStart="90dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="11dp"
-                android:fontFamily="@font/svn_aleo"
-                android:textColor="@color/black"
-                android:background="@color/white"/>
-            <TextView
-                android:id="@+id/textViewSDT"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:fontFamily="@font/svn_aleo"
-                android:paddingStart="90dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="11dp"
-                android:text="Số điện thoại: 0123456789"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:background="@color/white"/>
-            <TextView
-                android:id="@+id/textViewEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:fontFamily="@font/svn_aleo"
-                android:paddingStart="90dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="11dp"
-                android:text="Email: njkngok@gmail.com"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:background="@color/white"/>
-            <TextView
-                android:id="@+id/textViewNgaySinh"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:fontFamily="@font/svn_aleo"
-                android:paddingStart="90dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="11dp"
-                android:text="Ngày sinh: 28/09/2003"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:background="@color/white"/>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white">
-                <TextView
-                    android:id="@+id/textViewDiaChi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Địa chỉ giao hàng (mặc định):"
-                    android:textSize="17sp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="11dp"
-                    android:paddingStart="90dp"
-                    android:fontFamily="@font/svn_aleo"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:id="@+id/textViewDiaChiMĐ"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/textViewDiaChi"
-                    android:text="96 Định Công, Hoàng Mai, Hà Nội"
-                    android:textSize="17sp"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="11dp"
-                    android:paddingStart="90dp"
-                    android:fontFamily="@font/svn_aleo"
-                    android:textColor="@color/black"/>
-            </RelativeLayout>
-        </LinearLayout>
+            android:layout_height="match_parent"
+            android:background="@color/white">
+        </ListView>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

@@ -33,6 +33,7 @@ public class TrangXemThongTinMotKH extends AppCompatActivity {
         String id = i.getStringExtra("id");
 
         setContentView(R.layout.activity_trang_xem_thong_tin_mot_kh);
+        getSupportActionBar().hide();
         usersRef = FirebaseDatabase.getInstance().getReference("Users").child(id);
         TextView txtHoTen = findViewById(R.id.textViewSuaTen);
         txtEmail=findViewById(R.id.textViewEmail);
