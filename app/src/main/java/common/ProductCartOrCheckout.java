@@ -2,13 +2,13 @@ package common;
 
 import models.Product;
 
-public class ProductCart {
+public class ProductCartOrCheckout {
     public int quantity;
 
     public Product product;
 
 
-    public ProductCart(Product product, int quantity) {
+    public ProductCartOrCheckout(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }

@@ -21,16 +21,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import adapters.ProductCartAdapter;
-import common.ProductCart;
+import common.ProductCartOrCheckout;
 import models.Product;
 import models.User;
 import reference.Reference;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class TrangGioHang extends AppCompatActivity {
@@ -40,13 +43,15 @@ public class TrangGioHang extends AppCompatActivity {
 
     ImageButton button1;
 
-    ProductCartAdapter product_cart_adapter;
+    ProductCartAdapter adapter;
 
-    ArrayList<ProductCart> products_cart = new ArrayList<>();
+    ArrayList<ProductCartOrCheckout> products_cart = new ArrayList<>();
 
     CheckBox total_check;
 
     TextView text_view_selected_count, text_view_total_price;
+
+    Button button_buy_now;
 
 
     @Override
@@ -92,7 +97,7 @@ public class TrangGioHang extends AppCompatActivity {
 
                     HashMap<String, Integer> hash_products = user.getCart().get_products();
 
-                    if (product_cart_adapter == null) {
+                    if (adapter == null) {
                         products_ref.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot snapshot) {
@@ -105,15 +110,15 @@ public class TrangGioHang extends AppCompatActivity {
 
                                     if (hash_products.containsKey(product_id)) {
                                         if (hash_products.get(product_id) > 0) {
-                                            ProductCart product_cart = new ProductCart(product, hash_products.get(product_id));
+                                            ProductCartOrCheckout product_cart = new ProductCartOrCheckout(product, hash_products.get(product_id));
 
                                             products_cart.add(product_cart);
                                         }
                                     }
                                 }
                                 HandleProductCart hander = new HandleProductCart();
-                                product_cart_adapter = new ProductCartAdapter(TrangGioHang.this, products_cart, hander);
-                                list_view_cart.setAdapter(product_cart_adapter);
+                                adapter = new ProductCartAdapter(TrangGioHang.this, products_cart, hander);
+                                list_view_cart.setAdapter(adapter);
                             }
 
                             @Override
@@ -138,20 +143,50 @@ public class TrangGioHang extends AppCompatActivity {
                 if (total_check.isChecked()) {
                     for (int i = 0; i < products_cart.size(); i++) {
                         String id = products_cart.get(i).product.getId();
-                        product_cart_adapter.id_products_selected.put(i, id);
+                        adapter.id_products_selected.put(i, id);
                     }
 
-                    product_cart_adapter.notifyDataSetChanged();
+                    adapter.notifyDataSetChanged();
                     _h.update_total_price();
 
                 } else {
-                    product_cart_adapter.id_products_selected.clear();
-                    product_cart_adapter.notifyDataSetChanged();
+                    adapter.id_products_selected.clear();
+                    adapter.notifyDataSetChanged();
                     _h.update_total_price();
                 }
             }
         });
 
+
+        button_buy_now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (adapter.id_products_selected.size() > 0) {
+
+                    HashMap<String, Integer> _h_p = new HashMap<String, Integer>();
+
+                    for (int i = 0; i < adapter.id_products_selected.size(); i++) {
+                        int key = adapter.id_products_selected.keyAt(i);
+                        String value = adapter.id_products_selected.valueAt(i);
+
+                        ProductCartOrCheckout _p = products_cart.get(key);
+
+                        _h_p.put(value, _p.quantity);
+                    }
+
+                    Log.d("selected", _h_p.toString());
+                    Intent intent = new Intent(TrangGioHang.this, TrangMuaHang.class);
+
+                    intent.putExtra("products", _h_p);
+
+
+                    startActivity(intent);
+
+                    return;
+                }
+                Toast.makeText(TrangGioHang.this, "Vui lòng chọn sản phẩm", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     void mapping_client() {
@@ -159,6 +194,7 @@ public class TrangGioHang extends AppCompatActivity {
         total_check = findViewById(R.id.total_check);
         text_view_selected_count = findViewById(R.id.selected_count);
         text_view_total_price = findViewById(R.id.total);
+        button_buy_now = findViewById(R.id.button_buy_now);
     }
 
     public class HandleProductCart {
@@ -168,17 +204,17 @@ public class TrangGioHang extends AppCompatActivity {
 
         public void remove_product_cart(int position) {
             products_cart.remove(position);
-            product_cart_adapter.notifyDataSetChanged();
+            adapter.notifyDataSetChanged();
         }
 
-        public void update_products_cart(int position, ProductCart product) {
+        public void update_products_cart(int position, ProductCartOrCheckout product) {
             products_cart.set(position, product);
         }
 
         public void update_change_check_box() {
             if (products_cart != null) {
 
-                int selected_count = product_cart_adapter.id_products_selected.size();
+                int selected_count = adapter.id_products_selected.size();
 
                 total_check.setChecked(selected_count == products_cart.size());
 
@@ -191,11 +227,11 @@ public class TrangGioHang extends AppCompatActivity {
         public void update_total_price() {
             int price = 0;
 
-            for (int i = 0; i < product_cart_adapter.id_products_selected.size(); i++) {
-                int key = product_cart_adapter.id_products_selected.keyAt(i);
-                String value = product_cart_adapter.id_products_selected.valueAt(i);
+            for (int i = 0; i < adapter.id_products_selected.size(); i++) {
+                int key = adapter.id_products_selected.keyAt(i);
+                String value = adapter.id_products_selected.valueAt(i);
 
-                ProductCart _p = products_cart.get(key);
+                ProductCartOrCheckout _p = products_cart.get(key);
 
                 if (_p.product.getId() == value) {
                     price += _p.quantity * _p.product.getPrice();
@@ -203,7 +239,6 @@ public class TrangGioHang extends AppCompatActivity {
             }
 
             text_view_total_price.setText(Integer.toString(price));
-
         }
     }
 }

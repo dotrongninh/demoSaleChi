@@ -25,21 +25,21 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 import java.util.Objects;
 
-import common.ProductCart;
+import common.ProductCartOrCheckout;
 import models.User;
 import reference.Reference;
 
-public class ProductCartAdapter extends ArrayAdapter<ProductCart> {
+public class ProductCartAdapter extends ArrayAdapter<ProductCartOrCheckout> {
     private Context context;
 
-    private List<ProductCart> product_cards;
+    private List<ProductCartOrCheckout> product_cards;
 
     TrangGioHang.HandleProductCart handler;
 
     public SparseArray<String> id_products_selected = new SparseArray<>();
 
 
-    public ProductCartAdapter(@NonNull Context context, List<ProductCart> product_cards, TrangGioHang.HandleProductCart hander) {
+    public ProductCartAdapter(@NonNull Context context, List<ProductCartOrCheckout> product_cards, TrangGioHang.HandleProductCart hander) {
         super(context, 0, product_cards);
 
         this.context = context;
@@ -64,7 +64,7 @@ public class ProductCartAdapter extends ArrayAdapter<ProductCart> {
 
         View item_view = inflater.inflate(R.layout.item_sp_giohang, parent, false);
 
-        ProductCart item = product_cards.get(position);
+        ProductCartOrCheckout item = product_cards.get(position);
 
         if (item.quantity > 0) {
             ImageView image_item = item_view.findViewById(R.id.anh);

@@ -25,6 +25,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 import models.Product;
 import models.User;
 import reference.Reference;
@@ -40,9 +42,9 @@ public class TrangCTSP extends AppCompatActivity {
 
     TextView text_view_product_name, text_view_price, text_view_price_sale, text_view_product_description;
 
-    private Button button_add_to_cart;
+    private Button button_add_to_cart, button_buy_now;
 
-    private ImageButton home_button;
+    private ImageButton home_button, cart_button;
 
     private String product_id;
 
@@ -64,7 +66,30 @@ public class TrangCTSP extends AppCompatActivity {
             }
         });
 
+        cart_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangCTSP.this, TrangGioHang.class);
+                startActivity(intent);
+            }
+        });
+
         this.product_id = getIntent().getStringExtra("product_id");
+
+        this.button_buy_now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HashMap<String, Integer> products = new HashMap<String, Integer>();
+
+                products.put(product_id, 1);
+
+                Intent intent = new Intent(TrangCTSP.this, TrangMuaHang.class);
+
+                intent.putExtra("products", products);
+
+                startActivity(intent);
+            }
+        });
 
         this.button_add_to_cart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +129,9 @@ public class TrangCTSP extends AppCompatActivity {
         text_view_price_sale = findViewById(R.id.text_view_price_sale);
         text_view_product_description = findViewById(R.id.text_view_product_description);
         button_add_to_cart = findViewById(R.id.button_add_to_cart);
+        button_buy_now = findViewById(R.id.button_buy_now);
         home_button = findViewById(R.id.button1);
+        cart_button = findViewById(R.id.button4);
     }
 
     private void handleAddToCart() {
