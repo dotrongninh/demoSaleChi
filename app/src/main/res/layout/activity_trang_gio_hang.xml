@@ -5,20 +5,24 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TrangGioHang"
-    android:background="#FFFDE7">
+    android:background="#FFFDE7"
+    tools:context=".TrangGioHang">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:background="#2ecc71">
+
             <RelativeLayout
+                android:id="@+id/rlt1"
                 android:layout_width="350dp"
-                android:layout_height="90dp"
-                android:id="@+id/rlt1">
+                android:layout_height="90dp">
+
                 <TextView
                     android:id="@+id/membershipLabel"
                     android:layout_width="107dp"
@@ -33,18 +37,20 @@
                     android:text="Thành viên"
                     android:textColor="#2ecc71"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/profileName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:gravity="end"
                     android:layout_marginTop="30dp"
                     android:layout_toEndOf="@id/membershipLabel"
+                    android:gravity="end"
                     android:text="vanhlg"
                     android:textColor="#FFFDE7"
                     android:textSize="24sp" />
             </RelativeLayout>
+
             <ImageView
                 android:id="@+id/profileImage"
                 android:layout_width="match_parent"
@@ -53,121 +59,174 @@
                 android:contentDescription="Hình đại diện"
                 android:src="@drawable/default_profile_image" />
         </RelativeLayout>
+
         <ListView
-            android:id="@+id/thongbaocanhan"
+            android:id="@+id/list_view_cart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white">
-        </ListView>
+            android:background="@color/white" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="165dp"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="4dp"
             android:background="@color/black" />
-        <Button
-            android:id="@+id/btUpdateSp"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" Ninpepe Voucher"
-            android:drawableLeft="@drawable/ninpepe_voucher"
-            android:paddingStart="20dp"
-            android:textSize="18dp"
-            android:textColor="@color/black"
+            android:paddingHorizontal="65dp"
+            android:paddingVertical="5dp"
             android:background="@color/white"
-            android:fontFamily="@font/svn_aleo"
-            android:paddingTop="7dp"
-            android:paddingBottom="7dp"
-            android:textAllCaps="false"
-            android:gravity="bottom"
-            android:drawableRight="@drawable/icon_next" />
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:text="Tổng cộng" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text=""
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <!--        <Button-->
+        <!--            android:id="@+id/btUpdateSp"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text=" Ninpepe Voucher"-->
+        <!--            android:drawableLeft="@drawable/ninpepe_voucher"-->
+        <!--            android:paddingStart="20dp"-->
+        <!--            android:textSize="18dp"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:background="@color/white"-->
+        <!--            android:fontFamily="@font/svn_aleo"-->
+        <!--            android:paddingTop="7dp"-->
+        <!--            android:paddingBottom="7dp"-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:gravity="bottom"-->
+        <!--            android:drawableRight="@drawable/icon_next" />-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ffffff"
             android:orientation="horizontal">
-            <CheckBox
-                android:id="@+id/check"
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp">
-            </CheckBox>
-            <TextView
-                android:id="@+id/product_description"
-                android:layout_marginLeft="5dp"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Chọn tất cả"
-                android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/total_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"></CheckBox>
+
+                    <TextView
+                        android:id="@+id/product_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="Chọn tất cả"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/selected_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(0)" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+
             <Button
-                android:layout_marginStart="70dp"
                 android:id="@+id/btn_update_product"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_alignParentEnd="true"
-                android:text="Mua ngay"
                 android:layout_gravity="end"
+                android:layout_marginStart="70dp"
+                android:backgroundTint="#ff0000"
+                android:text="Mua ngay"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
-                android:backgroundTint="#ff0000"
                 android:textSize="20dp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:background="#00BF63"
             android:gravity="center"
             android:orientation="horizontal">
+
             <ImageButton
                 android:id="@+id/button1"
                 android:layout_width="48dp"
                 android:layout_height="50dp"
-                android:src="@drawable/icon_button_trangchu"
+                android:layout_margin="8dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Button 1"
-                android:layout_margin="8dp"/>
+                android:src="@drawable/icon_button_trangchu" />
+
             <ImageButton
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:src="@drawable/icon_button_sale"
+                android:layout_margin="8dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Button 2"
-                android:layout_margin="8dp"
-                android:paddingStart="15dp"/>
+                android:paddingStart="15dp"
+                android:src="@drawable/icon_button_sale" />
+
             <ImageButton
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:src="@drawable/icon_button_notification"
+                android:layout_margin="8dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Button 3"
-                android:layout_margin="8dp"
-                android:paddingStart="15dp"/>
+                android:paddingStart="15dp"
+                android:src="@drawable/icon_button_notification" />
+
             <ImageButton
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:src="@drawable/icon_button_giohang"
+                android:layout_margin="8dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Button 4"
-                android:layout_margin="8dp"
-                android:paddingStart="15dp"/>
+                android:paddingStart="15dp"
+                android:src="@drawable/icon_button_giohang" />
 
             <ImageButton
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:src="@drawable/icon_button_myself"
+                android:layout_margin="8dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Button 5"
-                android:layout_margin="8dp"
-                android:paddingStart="15dp"/>
+                android:paddingStart="15dp"
+                android:src="@drawable/icon_button_myself" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

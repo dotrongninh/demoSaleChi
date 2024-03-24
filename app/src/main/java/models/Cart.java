@@ -12,14 +12,21 @@ public class Cart {
     }
 
     public Cart(){
-        this.products = new HashMap<>();
+        this.products = new HashMap<String, Integer>();
     }
 
-    public HashMap<String, Integer> getProducts() {
+    public HashMap<String, Integer> get_products() {
         return products;
     }
 
-    public void setProducts(HashMap<String, Integer> products) {
+    public void set_products(HashMap<String, Integer> products) {
         this.products = products;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "products=" + products +
+                '}';
     }
 }

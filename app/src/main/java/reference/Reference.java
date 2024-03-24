@@ -1,5 +1,7 @@
 package reference;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -11,7 +13,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import models.Product;
 import models.User;
 import models.Voucher;
 
@@ -30,6 +34,52 @@ public class Reference {
 //    private DatabaseReference orders = database.getReference("Orders");
 
     public Reference() {
+        products.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                Product product_removed = snapshot.getValue(Product.class);
+
+                users.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot data_snapshot) {
+                        for (DataSnapshot userSnapshot : data_snapshot.getChildren()) {
+                            User user = userSnapshot.getValue(User.class);
+
+                            assert user != null;
+                            user.delete_product(product_removed.getId());
+
+                            users.child(user.getId()).child("cart").setValue(user.getCart());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         vouchers.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {

@@ -2,6 +2,7 @@ package com.example.app_bandienthoai;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -43,6 +44,7 @@ public class TrangChu extends AppCompatActivity {
         bt_ThongBao = findViewById(R.id.button3);
         bt_TTCaNhan = findViewById(R.id.button5);
         bt_KhuyenMai = findViewById(R.id.button2);
+        bt_GioHang = findViewById(R.id.button4);
         image_button_search = findViewById(R.id.image_button_search);
         edit_text_search_value = findViewById(R.id.edit_text_search_value);
         ListView list_view_products = findViewById(R.id.products);
@@ -115,6 +117,15 @@ public class TrangChu extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        bt_GioHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangChu.this, TrangGioHang.class);
+
+                startActivity(intent);
             }
         });
     }

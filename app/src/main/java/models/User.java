@@ -4,6 +4,7 @@ import org.checkerframework.checker.units.qual.C;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class User {
     private String id;
@@ -116,5 +117,69 @@ public class User {
 
     public void setCart(Cart cart) {
         this.cart = cart;
+    }
+
+    public void add_to_cart(String product_id) {
+        if (this.cart == null) {
+            this.cart = new Cart();
+        }
+
+        HashMap<String, Integer> products = this.cart.get_products();
+
+        if (products.containsKey(product_id)) {
+            int value = products.get(product_id);
+
+            products.put(product_id, value + 1);
+        } else {
+            products.put(product_id, 1);
+        }
+
+        this.cart.set_products(products);
+    }
+
+    public void minus_to_cart(String product_id) {
+        if (this.cart == null) {
+            this.cart = new Cart();
+            return;
+        }
+
+        HashMap<String, Integer> products = this.cart.get_products();
+        if (products.containsKey(product_id)) {
+            int value = products.get(product_id);
+
+            if (value <= 1)
+                products.remove(product_id);
+            else
+                products.put(product_id, value - 1);
+
+            this.cart.set_products(products);
+        }
+    }
+
+    public void delete_product(String product_id) {
+        if (cart == null) {
+            return;
+        }
+
+        HashMap<String, Integer> products = this.cart.get_products();
+
+        products.remove(product_id);
+
+        this.cart.set_products(products);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", date_of_birth=" + date_of_birth +
+                ", phone='" + phone + '\'' +
+                ", vouchers=" + vouchers +
+                ", user_notifications=" + user_notifications +
+                ", cart=" + cart.toString() +
+                '}';
     }
 }
