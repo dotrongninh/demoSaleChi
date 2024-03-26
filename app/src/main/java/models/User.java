@@ -21,8 +21,6 @@ public class User {
         return user_notifications;
     }
 
-    public ArrayList<Invoice> invoices;
-
     private Cart cart;
 
     public void setUser_notifications(ArrayList<User_Notification> user_notifications) {
@@ -39,7 +37,6 @@ public class User {
         this.vouchers = vouchers;
         this.user_notifications = user_notifications;
         this.cart = new Cart();
-        this.invoices = new ArrayList<Invoice>();
     }
 
     public User(String id, String name, String email, String password, Date date_of_birth, String phone, ArrayList<Voucher> vouchers) {
@@ -51,12 +48,10 @@ public class User {
         this.phone = phone;
         this.vouchers = vouchers;
         this.cart = new Cart();
-        this.invoices = new ArrayList<Invoice>();
     }
 
     public User() {
         this.cart = new Cart();
-        this.invoices = new ArrayList<Invoice>();
     }
 
     public String getId() {

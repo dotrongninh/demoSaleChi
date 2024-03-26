@@ -2,6 +2,7 @@ package models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 public class Invoice {
     private String id;
@@ -10,16 +11,19 @@ public class Invoice {
     private float total;
     private float discount;
     private Date create_at;
+
+    private boolean is_validate;
     private ArrayList<Order> orders;
 
-    public Invoice(String id, String user_id, String address, float total, float discount, Date create_at, ArrayList<Order> orders) {
+    public Invoice(String id, String user_id, String address, float total, float discount, ArrayList<Order> orders) {
         this.id = id;
         this.user_id = user_id;
         this.address = address;
         this.total = total;
         this.discount = discount;
-        this.create_at = create_at;
+        this.create_at = new Date();
         this.orders = orders;
+        this.is_validate = false;
     }
 
     public Invoice() {
@@ -80,5 +84,13 @@ public class Invoice {
 
     public void setOrders(ArrayList<Order> orders) {
         this.orders = orders;
+    }
+
+    public boolean isIs_validate() {
+        return is_validate;
+    }
+
+    public void setIs_validate(boolean is_validate) {
+        this.is_validate = is_validate;
     }
 }

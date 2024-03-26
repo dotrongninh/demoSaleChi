@@ -1,6 +1,8 @@
 package com.example.app_bandienthoai;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,13 +30,20 @@ import java.util.HashMap;
 
 import adapters.ProductCheckoutAdapter;
 import common.ProductCartOrCheckout;
+import models.Invoice;
+import models.Order;
 import models.Product;
+import models.User;
 import reference.Reference;
 
 public class TrangMuaHang extends AppCompatActivity {
     final Reference reference = new Reference();
 
     final DatabaseReference products_ref = reference.getProducts();
+
+    final DatabaseReference invoices_ref = reference.getInvoices();
+
+    final DatabaseReference users_ref = reference.getUsers();
 
     ArrayList<ProductCartOrCheckout> _products_checkout = new ArrayList<>();
 
@@ -51,6 +60,10 @@ public class TrangMuaHang extends AppCompatActivity {
     Button button_order;
 
     ImageButton image_button_home, image_button_cart;
+
+    HashMap<String, Product> products = new HashMap<>();
+
+    boolean is_from_cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +82,8 @@ public class TrangMuaHang extends AppCompatActivity {
 
         HashMap<String, Integer> _h_products = (HashMap<String, Integer>) intent.getSerializableExtra("products");
 
+        is_from_cart = intent.getBooleanExtra("is_from_cart", false);
+
         assert _h_products != null;
         for (String key : _h_products.keySet()) {
             int _quantity = _h_products.get(key);
@@ -79,6 +94,8 @@ public class TrangMuaHang extends AppCompatActivity {
                     Product product = snapshot.getValue(Product.class);
 
                     total_price += product.getPrice() * _quantity;
+
+                    products.put(key, product);
 
                     _products_checkout.add(new ProductCartOrCheckout(product, _quantity));
 
@@ -146,8 +163,54 @@ public class TrangMuaHang extends AppCompatActivity {
             Toast toast = Toast.makeText(TrangMuaHang.this, "Vui lòng nhập địa chỉ", Toast.LENGTH_SHORT);
             toast.show();
         } else {
-            //do something
+            String new_invoice_id = invoices_ref.push().getKey();
 
+            ArrayList<Order> orders = new ArrayList<Order>();
+
+            float total_price = 0;
+
+            SharedPreferences sharedpreferences = getSharedPreferences("com.example.sharedprerences", Context.MODE_PRIVATE);
+
+            String user_id = sharedpreferences.getString("id", "");
+
+            for (ProductCartOrCheckout _p : _products_checkout) {
+
+                Order order = new Order(_p.product.getId(), _p.quantity, _p.quantity * _p.product.getPrice(), 0);
+
+                total_price += _p.quantity * _p.product.getPrice();
+
+                orders.add(order);
+            }
+
+            Invoice new_invoice = new Invoice(new_invoice_id, user_id, address, total_price, 0, orders);
+
+            invoices_ref.child(new_invoice_id).setValue(new_invoice);
+
+            if (is_from_cart) {
+                users_ref.child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User user = snapshot.getValue(User.class);
+
+                        for (ProductCartOrCheckout _p : _products_checkout) {
+                            user.delete_product(_p.product.getId());
+                        }
+
+                        users_ref.child(user.getId()).child("cart").setValue(user.getCart());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            Toast.makeText(this, "Ordered Successfully", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(TrangMuaHang.this, TrangChu.class);
+
+            startActivity(intent);
         }
     }
 }

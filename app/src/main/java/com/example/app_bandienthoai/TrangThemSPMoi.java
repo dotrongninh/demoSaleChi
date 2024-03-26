@@ -101,7 +101,6 @@ public class TrangThemSPMoi extends AppCompatActivity {
 
         ActivityResultLauncher<PickVisualMediaRequest> pick_media = registerForActivityResult(new ActivityResultContracts.PickVisualMedia(), uri -> {
             if (uri != null) {
-                Log.d("PhotoPicker", "Selected URI: " + uri);
                 Glide.with(TrangThemSPMoi.this).load(uri).into(image_view_product_image);
 
                 uploader.upload_file(uri, handle_upload);

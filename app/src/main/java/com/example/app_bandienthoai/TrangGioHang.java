@@ -179,6 +179,7 @@ public class TrangGioHang extends AppCompatActivity {
 
                     intent.putExtra("products", _h_p);
 
+                    intent.putExtra("is_from_cart", true);
 
                     startActivity(intent);
 
