@@ -8,6 +8,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +30,8 @@ public class TrangUpdateSP extends AppCompatActivity {
     private Button button_add_product, button_remove_product;
 
     UpdateProductAdapter update_product_adapter;
+
+    ImageButton image_button_home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +73,6 @@ public class TrangUpdateSP extends AppCompatActivity {
         button_remove_product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("product select", update_product_adapter.get_id_products_selected().toString());
-
                 SparseArray<String> ids = update_product_adapter.get_id_products_selected();
 
                 for (int i = 0; i < ids.size(); i++) {
@@ -81,11 +82,21 @@ public class TrangUpdateSP extends AppCompatActivity {
                 }
             }
         });
+
+        image_button_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangUpdateSP.this, TrangAdmin.class);
+
+                startActivity(intent);
+            }
+        });
     }
 
     private void mapping_client() {
         list_view_products = findViewById(R.id.products);
         button_add_product = findViewById(R.id.btn_add_product);
         button_remove_product = findViewById(R.id.btnxoa);
+        image_button_home = findViewById(R.id.button1);
     }
 }

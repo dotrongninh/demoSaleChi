@@ -101,6 +101,7 @@ public class TrangChu extends AppCompatActivity {
         });
 
 
+
         products_ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {

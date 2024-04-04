@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -42,6 +43,8 @@ public class TrangThemSPMoi extends AppCompatActivity {
     private boolean isUpdateProduct;
 
     private FirebaseStorageUploader uploader = new FirebaseStorageUploader(this);
+
+    ImageButton image_button_home;
 
     private HandleFileUploadListener handle_upload = new HandleFileUploadListener() {
         @Override
@@ -116,6 +119,15 @@ public class TrangThemSPMoi extends AppCompatActivity {
                 pick_media.launch(new PickVisualMediaRequest.Builder().setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE).build());
             }
         });
+
+        image_button_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TrangThemSPMoi.this, TrangAdmin.class);
+
+                startActivity(intent);
+            }
+        });
     }
 
     private void handleOnClickAction(String product_id) {
@@ -170,5 +182,6 @@ public class TrangThemSPMoi extends AppCompatActivity {
         this.edit_text_product_quantity = findViewById(R.id.editTextQuantity);
         this.edit_text_product_description = findViewById(R.id.editTextDescription);
         this.image_view_product_image = findViewById(R.id.imageView);
+        this.image_button_home = findViewById(R.id.button1);
     }
 }
