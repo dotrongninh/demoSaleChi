@@ -38,15 +38,17 @@ public class TrangCTSP extends AppCompatActivity {
 
     private final DatabaseReference user_ref = reference.getUsers();
 
-    private ImageView image_view_product_image;
+    private ImageView image_view_product_image, add_action, minus_action;
 
-    TextView text_view_product_name, text_view_price, text_view_price_sale, text_view_product_description;
+    TextView text_view_product_name, text_view_price, text_view_price_sale, text_view_product_description, text_view_product_quantity;
 
     private Button button_add_to_cart, button_buy_now;
 
     private ImageButton home_button, cart_button;
 
     private String product_id;
+
+    private int quantity = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +83,7 @@ public class TrangCTSP extends AppCompatActivity {
             public void onClick(View v) {
                 HashMap<String, Integer> products = new HashMap<String, Integer>();
 
-                products.put(product_id, 1);
+                products.put(product_id, quantity);
 
                 Intent intent = new Intent(TrangCTSP.this, TrangMuaHang.class);
 
@@ -115,6 +117,26 @@ public class TrangCTSP extends AppCompatActivity {
             }
         });
 
+        add_action.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                quantity += 1;
+                text_view_product_quantity.setText(Integer.toString(quantity));
+            }
+        });
+
+        minus_action.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (quantity == 1) {
+                    return;
+                }
+
+                quantity -= 1;
+                text_view_product_quantity.setText(Integer.toString(quantity));
+            }
+        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -132,6 +154,10 @@ public class TrangCTSP extends AppCompatActivity {
         button_buy_now = findViewById(R.id.button_buy_now);
         home_button = findViewById(R.id.button1);
         cart_button = findViewById(R.id.button4);
+        add_action = findViewById(R.id.add_action);
+        minus_action = findViewById(R.id.minus_action);
+        text_view_product_quantity = findViewById(R.id.product_quantity);
+        text_view_product_quantity.setText(Integer.toString(quantity));
     }
 
     private void handleAddToCart() {
@@ -147,7 +173,9 @@ public class TrangCTSP extends AppCompatActivity {
 
                 assert user != null;
 
-                user.add_to_cart(product_id);
+                for (int i = 0; i < quantity; i++) {
+                    user.add_to_cart(product_id);
+                }
 
                 user_ref.child(user_id).child("cart").setValue(user.getCart());
             }

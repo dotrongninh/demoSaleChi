@@ -5,20 +5,24 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TrangCTSP"
-    android:background="#FFFDE7">
+    android:background="#FFFDE7"
+    tools:context=".TrangCTSP">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:background="#2ecc71">
+
             <RelativeLayout
+                android:id="@+id/rlt1"
                 android:layout_width="350dp"
-                android:layout_height="90dp"
-                android:id="@+id/rlt1">
+                android:layout_height="90dp">
+
                 <TextView
                     android:id="@+id/membershipLabel"
                     android:layout_width="107dp"
@@ -33,18 +37,20 @@
                     android:text="Thành viên"
                     android:textColor="#2ecc71"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/profileName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:gravity="end"
                     android:layout_marginTop="30dp"
                     android:layout_toEndOf="@id/membershipLabel"
+                    android:gravity="end"
                     android:text="vanhlg"
                     android:textColor="#FFFDE7"
                     android:textSize="24sp" />
             </RelativeLayout>
+
             <ImageView
                 android:id="@+id/profileImage"
                 android:layout_width="match_parent"
@@ -53,61 +59,69 @@
                 android:contentDescription="Hình đại diện"
                 android:src="@drawable/default_profile_image" />
         </RelativeLayout>
+
         <ImageView
             android:id="@+id/image_view_product_image"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_marginTop="30px"
             android:layout_gravity="center"
-            android:src="@drawable/demoanhdienthoai">
-        </ImageView>
+            android:layout_marginTop="30px"
+            android:src="@drawable/demoanhdienthoai"></ImageView>
+
         <TextView
             android:id="@+id/text_view_product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Điện thoại Samsung"
-            android:textStyle="bold"
             android:layout_gravity="center"
             android:background="@android:color/transparent"
-            android:textSize="30dp"/>
+            android:text="Điện thoại Samsung"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/text_view_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="30.000 đ"
                     android:layout_marginStart="100dp"
                     android:background="@android:color/transparent"
-                    android:textSize="25dp"
-                    android:textColor="@color/black" />
+                    android:text="30.000 đ"
+                    android:textColor="@color/black"
+                    android:textSize="25dp" />
+
                 <View
                     android:layout_width="110dp"
                     android:layout_height="2dp"
-                    android:background="@color/black"
+                    android:layout_marginStart="90dp"
                     android:layout_marginTop="17dp"
-                    android:layout_marginStart="90dp"/>
+                    android:background="@color/black" />
             </FrameLayout>
+
             <TextView
                 android:id="@+id/text_view_price_sale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10.000 đ"
-                android:textStyle="bold"
                 android:layout_marginStart="10dp"
                 android:background="@android:color/transparent"
+                android:text="10.000 đ"
+                android:textColor="#ff0000"
                 android:textSize="25dp"
-                android:textColor="#ff0000"/>
+                android:textStyle="bold" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/button_add_to_cart"
                 android:layout_width="wrap_content"
@@ -116,8 +130,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:backgroundTint="#2ecc71"
-                android:text="Thêm vào giỏ hàng" >
-            </Button>
+                android:text="Thêm vào giỏ hàng"></Button>
+
             <Button
                 android:id="@+id/button_buy_now"
                 android:layout_width="wrap_content"
@@ -126,21 +140,74 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:backgroundTint="#2ecc71"
-                android:text="Mua ngay" >
-            </Button>
+                android:text="Mua ngay"></Button>
         </LinearLayout>
+
         <TextView
             android:id="@+id/text_view_product_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Mô tả: Điện thoại Samsung là một điện thoại rất xịn =)) Nó là mô tả đó"
-            android:textStyle="bold"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:background="@android:color/transparent"
+            android:text="Mô tả: Điện thoại Samsung là một điện thoại rất xịn =)) Nó là mô tả đó"
+            android:textColor="@color/black"
             android:textSize="25dp"
-            android:textColor="@color/black"/>
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số lượng"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:layout_marginLeft="210dp">
+
+                <ImageView
+                    android:id="@+id/add_action"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="9dp"
+                    android:src="@drawable/add" />
+
+
+                <TextView
+                    android:id="@+id/product_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:inputType="numberDecimal"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="26dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/minus_action"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="9dp"
+                    android:src="@drawable/minus" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="65dp"
@@ -148,50 +215,54 @@
         android:background="#00BF63"
         android:gravity="center"
         android:orientation="horizontal">
+
         <ImageButton
             android:id="@+id/button1"
             android:layout_width="48dp"
             android:layout_height="50dp"
-            android:src="@drawable/icon_button_trangchu"
+            android:layout_margin="8dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Button 1"
-            android:layout_margin="8dp"/>
+            android:src="@drawable/icon_button_trangchu" />
+
         <ImageButton
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:src="@drawable/icon_button_sale"
+            android:layout_margin="8dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Button 2"
-            android:layout_margin="8dp"
-            android:paddingStart="15dp"/>
+            android:paddingStart="15dp"
+            android:src="@drawable/icon_button_sale" />
+
         <ImageButton
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:src="@drawable/icon_button_notification"
+            android:layout_margin="8dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Button 3"
-            android:layout_margin="8dp"
-            android:paddingStart="15dp"/>
+            android:paddingStart="15dp"
+            android:src="@drawable/icon_button_notification" />
+
         <ImageButton
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:src="@drawable/icon_button_giohang"
+            android:layout_margin="8dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Button 4"
-            android:layout_margin="8dp"
-            android:paddingStart="15dp"/>
+            android:paddingStart="15dp"
+            android:src="@drawable/icon_button_giohang" />
 
         <ImageButton
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:src="@drawable/icon_button_myself"
+            android:layout_margin="8dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Button 5"
-            android:layout_margin="8dp"
-            android:paddingStart="15dp"/>
+            android:paddingStart="15dp"
+            android:src="@drawable/icon_button_myself" />
     </LinearLayout>
 </RelativeLayout>
