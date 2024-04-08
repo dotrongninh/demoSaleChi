@@ -11,7 +11,6 @@ public class Invoice {
     private float total;
     private float discount;
     private Date create_at;
-
     private boolean is_validate;
     private ArrayList<Order> orders;
 

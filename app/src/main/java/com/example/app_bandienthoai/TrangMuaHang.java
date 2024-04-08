@@ -29,11 +29,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import adapters.ProductCheckoutAdapter;
+import adapters.VoucherCheckoutAdapter;
 import common.ProductCartOrCheckout;
 import models.Invoice;
 import models.Order;
 import models.Product;
 import models.User;
+import models.Voucher;
 import reference.Reference;
 
 public class TrangMuaHang extends AppCompatActivity {
@@ -49,7 +51,7 @@ public class TrangMuaHang extends AppCompatActivity {
 
     double total_price = 0;
 
-    ListView list_view_products;
+    ListView list_view_products, list_view_vouchers;
 
     ProductCheckoutAdapter adapter;
 
@@ -64,6 +66,10 @@ public class TrangMuaHang extends AppCompatActivity {
     HashMap<String, Product> products = new HashMap<>();
 
     boolean is_from_cart;
+
+    VoucherCheckoutAdapter adapter_voucher;
+
+    ArrayList<Voucher> vouchers = new ArrayList<Voucher>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +97,7 @@ public class TrangMuaHang extends AppCompatActivity {
             products_ref.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Log.d("A", "A");
                     Product product = snapshot.getValue(Product.class);
 
                     total_price += product.getPrice() * _quantity;
@@ -143,6 +150,32 @@ public class TrangMuaHang extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        SharedPreferences sharedpreferences = getSharedPreferences("com.example.sharedprerences", Context.MODE_PRIVATE);
+
+        String user_id = sharedpreferences.getString("id", "");
+
+        users_ref.child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+                if (user != null && user.getVouchers() != null) {
+                    for (Voucher _v : user.getVouchers()) {
+                        if (total_price > _v.getCondition()) {
+                            vouchers.add(_v);
+                        }
+                    }
+                    adapter_voucher = new VoucherCheckoutAdapter(TrangMuaHang.this, vouchers, new HandleCheck());
+
+                    list_view_vouchers.setAdapter(adapter_voucher);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 
@@ -154,6 +187,7 @@ public class TrangMuaHang extends AppCompatActivity {
         this.button_order = findViewById(R.id.order);
         this.image_button_home = findViewById(R.id.button1);
         this.image_button_cart = findViewById(R.id.button4);
+        this.list_view_vouchers = findViewById(R.id.vouchers);
     }
 
     private void handle_checkout() {
@@ -182,7 +216,31 @@ public class TrangMuaHang extends AppCompatActivity {
                 orders.add(order);
             }
 
-            Invoice new_invoice = new Invoice(new_invoice_id, user_id, address, total_price, 0, orders);
+            float discount = (adapter_voucher.position_selected != null)
+                    ? vouchers.get(adapter_voucher.position_selected).getValue()
+                    : 0;
+
+            Invoice new_invoice = new Invoice(new_invoice_id, user_id, address, total_price, discount, orders);
+
+            users_ref.child(user_id).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    User user = snapshot.getValue(User.class);
+
+                    if (adapter_voucher.position_selected != null) {
+                        vouchers.remove(vouchers.get(Integer.valueOf(adapter_voucher.position_selected)));
+                    }
+                    Log.d("leng", "onDataChange: " + vouchers.size());
+
+
+                    users_ref.child(user.getId()).child("vouchers").setValue(vouchers);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
 
             invoices_ref.child(new_invoice_id).setValue(new_invoice);
 
@@ -211,6 +269,25 @@ public class TrangMuaHang extends AppCompatActivity {
             Intent intent = new Intent(TrangMuaHang.this, TrangChu.class);
 
             startActivity(intent);
+        }
+    }
+
+    public class HandleCheck {
+
+        public HandleCheck() {
+
+        }
+
+        public void handle_check(Integer position, Integer position_selected) {
+            if (position_selected == null || !position_selected.equals(position)) {
+                adapter_voucher.position_selected = position;
+                adapter_voucher.notifyDataSetChanged();
+                text_view_total_price.setText(Double.toString(total_price - vouchers.get(position).getValue()) + " đ");
+            } else {
+                adapter_voucher.position_selected = null;
+                adapter_voucher.notifyDataSetChanged();
+                text_view_total_price.setText(Double.toString(total_price) + " đ");
+            }
         }
     }
 }
