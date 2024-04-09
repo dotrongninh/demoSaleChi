@@ -67,9 +67,11 @@ public class TrangMuaHang extends AppCompatActivity {
 
     boolean is_from_cart;
 
-    VoucherCheckoutAdapter adapter_voucher;
 
     ArrayList<Voucher> vouchers = new ArrayList<Voucher>();
+
+    VoucherCheckoutAdapter adapter_voucher;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,6 +153,8 @@ public class TrangMuaHang extends AppCompatActivity {
             }
         });
 
+        adapter_voucher = new VoucherCheckoutAdapter(TrangMuaHang.this, vouchers, new HandleCheck());
+
         SharedPreferences sharedpreferences = getSharedPreferences("com.example.sharedprerences", Context.MODE_PRIVATE);
 
         String user_id = sharedpreferences.getString("id", "");
@@ -216,7 +220,7 @@ public class TrangMuaHang extends AppCompatActivity {
                 orders.add(order);
             }
 
-            float discount = (adapter_voucher.position_selected != null)
+            float discount = (adapter_voucher != null && adapter_voucher.position_selected != null)
                     ? vouchers.get(adapter_voucher.position_selected).getValue()
                     : 0;
 
