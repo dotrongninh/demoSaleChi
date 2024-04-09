@@ -23,7 +23,17 @@ public class TrangAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_admin);
         getSupportActionBar().hide();
+
+
         btXemTTKhachHang = findViewById(R.id.btXemTTKhachHang);
+        btDuyetDonHang =findViewById(R.id.btDuyetDonHang);
+        btDuyetDonHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i =new Intent(TrangAdmin.this, TrangDuyetDonHang.class);
+                startActivity(i);
+            }
+        });
         btXemTTKhachHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

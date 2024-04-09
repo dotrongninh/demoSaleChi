@@ -57,13 +57,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <CheckBox
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/checktong"
                 android:layout_marginStart="15dp">
             </CheckBox>
             <Button
-                android:id="@+id/btnxoa"
+                android:id="@+id/btDuyet"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_toEndOf="@id/checktong"
@@ -73,7 +74,7 @@
                 android:textAllCaps="false"
                 android:layout_marginStart="160dp"/>
             <Button
-                android:id="@+id/btn_add_product"
+                android:id="@+id/btXoa"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_alignParentEnd="true"
@@ -83,7 +84,7 @@
                 android:textAllCaps="false" />
         </RelativeLayout>
         <ListView
-            android:id="@+id/products"
+            android:id="@+id/invoices"
             android:layout_width="wrap_content"
             android:layout_height="530dp"
             android:background="@color/white"/>

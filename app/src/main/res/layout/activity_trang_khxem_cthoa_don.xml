@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".TrangKHXemCTHoaDon"
     android:background="#FFFDE7">
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,6 +58,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sản phẩm đang được vận chuyển"
@@ -83,10 +88,12 @@
                 android:textStyle="bold"
                 android:textColor="@color/black">
             </TextView>
+
             <ListView
+                android:id="@+id/products"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"/>
+                android:layout_height="296dp"
+                android:background="@color/white" />
             <TextView
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
@@ -118,7 +125,7 @@
                     android:fontFamily="@font/svn_aleo"
                     android:textColor="@color/black"
                     android:background="@color/white" />
-                <EditText
+                <TextView
                     android:id="@+id/TongTien"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -149,7 +156,7 @@
                     android:fontFamily="@font/svn_aleo"
                     android:textColor="@color/black"
                     android:background="@color/white"/>
-                <EditText
+                <TextView
                     android:id="@+id/GiamGia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -180,7 +187,7 @@
                     android:fontFamily="@font/svn_aleo"
                     android:textColor="@color/black"
                     android:background="@color/white"/>
-                <EditText
+                <TextView
                     android:id="@+id/ThanhTien"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -283,4 +290,5 @@
             android:layout_margin="8dp"
             android:paddingStart="15dp"/>
     </LinearLayout>
+
 </RelativeLayout>

@@ -99,6 +99,13 @@ public class TrangChu extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        bt_KhuyenMai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i =new Intent(TrangChu.this,TrangKhuyenMai.class);
+                startActivity(i);
+            }
+        });
 
 
 

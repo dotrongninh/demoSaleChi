@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +30,8 @@ public class TrangMyProfile extends AppCompatActivity {
     EditText edHoTen,edSDT,edNgaySinh;
     TextView txtEmail,txtProFileName;
     ImageButton btEditThongTin;
-    @SuppressLint("WrongViewCast")
+    Button btDonHangDaMua;
+    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,17 @@ public class TrangMyProfile extends AppCompatActivity {
        txtProFileName=findViewById(R.id.profileName);
        edNgaySinh =findViewById(R.id.textViewNgaySinh);
        btEditThongTin=findViewById(R.id.btEditThongTin);
+       btDonHangDaMua = findViewById(R.id.btDonHangDaMua);
+
+       btDonHangDaMua.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent i =new Intent(TrangMyProfile.this,TrangXemDHdamua.class);
+               startActivity(i);
+           }
+       });
+
+
 
     btEditThongTin.setOnClickListener(new View.OnClickListener() {
         @Override

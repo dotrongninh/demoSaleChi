@@ -54,7 +54,7 @@
                 android:src="@drawable/default_profile_image" />
         </RelativeLayout>
         <ListView
-            android:id="@+id/thongbaocanhan"
+            android:id="@+id/user_invoices"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white">
