@@ -103,6 +103,9 @@ public class User {
     }
 
     public ArrayList<Voucher> getVouchers() {
+        if (vouchers == null) {
+            return new ArrayList<Voucher>();
+        }
         return vouchers;
     }
 

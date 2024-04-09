@@ -163,7 +163,6 @@ public class TrangMuaHang extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
-                if (user != null && user.getVouchers() != null) {
                     for (Voucher _v : user.getVouchers()) {
                         if (total_price > _v.getCondition()) {
                             vouchers.add(_v);
@@ -172,7 +171,6 @@ public class TrangMuaHang extends AppCompatActivity {
                     adapter_voucher = new VoucherCheckoutAdapter(TrangMuaHang.this, vouchers, new HandleCheck());
 
                     list_view_vouchers.setAdapter(adapter_voucher);
-                }
             }
 
             @Override

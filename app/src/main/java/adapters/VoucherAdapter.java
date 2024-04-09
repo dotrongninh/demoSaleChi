@@ -15,25 +15,38 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.app_bandienthoai.R;
+import com.example.app_bandienthoai.TrangMuaHang;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import models.User;
 import models.Voucher;
+import reference.Reference;
 
 public class VoucherAdapter extends ArrayAdapter<Voucher> {
     private Context mContext;
+
+    final Reference reference = new Reference();
+
+    final DatabaseReference users_ref = reference.getUsers();
+
     DatabaseReference usersRef;
-   String myID;
+    String myID;
     private int mResource;
-    public VoucherAdapter(@NonNull Context context, int resource, @NonNull List<Voucher> objects,String myId) {
+
+    public VoucherAdapter(@NonNull Context context, int resource, @NonNull List<Voucher> objects, String myId) {
         super(context, resource, objects);
         mContext = context;
-        mResource=resource;
+        mResource = resource;
         myID = myId;
     }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -46,20 +59,37 @@ public class VoucherAdapter extends ArrayAdapter<Voucher> {
         }
 
         TextView textViewName = itemView.findViewById(R.id.title1);
-        Button b=itemView.findViewById(R.id.btLuu1);
+        Button b = itemView.findViewById(R.id.btLuu1);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "Thêm voucher thanh công", Toast.LENGTH_SHORT).show();
-                Voucher voucher= getItem(position);
-                usersRef.child(voucher.getId()).setValue(voucher);
+                users_ref.child(myID).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User user = snapshot.getValue(User.class);
+
+                        ArrayList<Voucher> vouchers = user.getVouchers();
+
+                        Voucher voucher = getItem(position);
+
+                        vouchers.add(voucher);
+
+                        usersRef.setValue(vouchers);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
             }
         });
 
 
-        Voucher voucher= getItem(position);
+        Voucher voucher = getItem(position);
 
         if (voucher != null) {
             textViewName.setText(voucher.getDescription());
