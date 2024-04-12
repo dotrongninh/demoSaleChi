@@ -26,6 +26,9 @@ render.experimental.xml
 *.jks
 *.keystore
 
+google-services.json
+
+
 
 # Android Profiling
 *.hprof
