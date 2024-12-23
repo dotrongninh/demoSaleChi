@@ -16,7 +16,7 @@ import java.util.Date;
 import models.User;
 
 public class TrangAdmin extends AppCompatActivity {
-    Button btUpdateSP, btXemTTKhachHang, btDuyetDonHang;
+    Button btUpdateSP, btXemTTKhachHang, btDuyetDonHang,btDangXuat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,18 @@ public class TrangAdmin extends AppCompatActivity {
         setContentView(R.layout.activity_trang_admin);
         getSupportActionBar().hide();
 
+        btDangXuat = findViewById(R.id.btDANGXUAT);
 
         btXemTTKhachHang = findViewById(R.id.btXemTTKhachHang);
         btDuyetDonHang =findViewById(R.id.btDuyetDonHang);
+
+        btDangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i =new Intent(TrangAdmin.this, TrangDangNhap.class);
+                startActivity(i);
+            }
+        });
         btDuyetDonHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

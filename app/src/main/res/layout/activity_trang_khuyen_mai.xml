@@ -41,7 +41,7 @@
                     android:gravity="end"
                     android:layout_marginTop="30dp"
                     android:layout_toEndOf="@id/membershipLabel"
-                    android:text="vanhlg"
+                    android:text="USER"
                     android:textColor="#FFFDE7"
                     android:textSize="24sp" />
             </RelativeLayout>
@@ -57,10 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@drawable/img"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:src="@drawable/item_khuyenmai"/>
+
 
         <ImageView
             android:layout_width="220dp"
@@ -74,8 +71,7 @@
             <ListView
                 android:id="@+id/vouchers"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                ></ListView>
+                android:layout_height="56dp"></ListView>
 
             <LinearLayout
                 android:layout_marginStart="40dp"

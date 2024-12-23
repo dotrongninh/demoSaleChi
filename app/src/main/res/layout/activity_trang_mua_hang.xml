@@ -124,7 +124,7 @@
                 android:id="@+id/ThongTinCaNhan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/white"
                 android:fontFamily="@font/svn_aleo"
                 android:paddingStart="20dp"
@@ -170,7 +170,7 @@
             <ListView
                 android:id="@+id/list_view_products"
                 android:layout_width="match_parent"
-                android:layout_height="155dp"
+                android:layout_height="119dp"
                 android:background="@color/white" />
 
             <TextView
@@ -223,39 +223,39 @@
                     android:textSize="17sp" />
             </RelativeLayout>
 
-<!--            <RelativeLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="48dp"-->
-<!--                android:background="@color/white">-->
+            <!--            <RelativeLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="48dp"-->
+            <!--                android:background="@color/white">-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/textViewGiamGia"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:background="@color/white"-->
-<!--                    android:fontFamily="@font/svn_aleo"-->
-<!--                    android:paddingStart="200dp"-->
-<!--                    android:paddingTop="15dp"-->
-<!--                    android:paddingBottom="11dp"-->
-<!--                    android:text="Giảm giá:"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="17sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/textViewGiamGia"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@color/white"-->
+            <!--                    android:fontFamily="@font/svn_aleo"-->
+            <!--                    android:paddingStart="200dp"-->
+            <!--                    android:paddingTop="15dp"-->
+            <!--                    android:paddingBottom="11dp"-->
+            <!--                    android:text="Giảm giá:"-->
+            <!--                    android:textColor="@color/black"-->
+            <!--                    android:textSize="17sp" />-->
 
-<!--                <EditText-->
-<!--                    android:id="@+id/GiamGia"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginEnd="5dp"-->
-<!--                    android:layout_toEndOf="@id/textViewGiamGia"-->
-<!--                    android:backgroundTint="@color/white"-->
-<!--                    android:fontFamily="@font/svn_aleo"-->
-<!--                    android:paddingTop="15dp"-->
-<!--                    android:paddingBottom="11dp"-->
-<!--                    android:text="600.000 đ"-->
-<!--                    android:textAlignment="textEnd"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="17sp" />-->
-<!--            </RelativeLayout>-->
+            <!--                <EditText-->
+            <!--                    android:id="@+id/GiamGia"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginEnd="5dp"-->
+            <!--                    android:layout_toEndOf="@id/textViewGiamGia"-->
+            <!--                    android:backgroundTint="@color/white"-->
+            <!--                    android:fontFamily="@font/svn_aleo"-->
+            <!--                    android:paddingTop="15dp"-->
+            <!--                    android:paddingBottom="11dp"-->
+            <!--                    android:text="600.000 đ"-->
+            <!--                    android:textAlignment="textEnd"-->
+            <!--                    android:textColor="@color/black"-->
+            <!--                    android:textSize="17sp" />-->
+            <!--            </RelativeLayout>-->
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -292,47 +292,47 @@
             </RelativeLayout>
         </LinearLayout>
 
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="48dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:background="@color/white">-->
+        <!--        <RelativeLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="48dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:background="@color/white">-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/PhuongThucThanhToan"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@color/white"-->
-<!--                android:drawableLeft="@drawable/item_phuongthucthanhtoan"-->
-<!--                android:fontFamily="@font/svn_aleo"-->
-<!--                android:paddingStart="7dp"-->
-<!--                android:paddingTop="15dp"-->
-<!--                android:paddingBottom="11dp"-->
-<!--                android:text="Phương thức thanh toán"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="17dp"-->
-<!--                android:textStyle="bold" />-->
+        <!--            <TextView-->
+        <!--                android:id="@+id/PhuongThucThanhToan"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:background="@color/white"-->
+        <!--                android:drawableLeft="@drawable/item_phuongthucthanhtoan"-->
+        <!--                android:fontFamily="@font/svn_aleo"-->
+        <!--                android:paddingStart="7dp"-->
+        <!--                android:paddingTop="15dp"-->
+        <!--                android:paddingBottom="11dp"-->
+        <!--                android:text="Phương thức thanh toán"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="17dp"-->
+        <!--                android:textStyle="bold" />-->
 
-<!--            <EditText-->
-<!--                android:id="@+id/PTTT"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="5dp"-->
-<!--                android:layout_toEndOf="@id/PhuongThucThanhToan"-->
-<!--                android:backgroundTint="@color/white"-->
-<!--                android:fontFamily="@font/svn_aleo"-->
-<!--                android:paddingTop="15dp"-->
-<!--                android:paddingBottom="11dp"-->
-<!--                android:text="Tiền mặt"-->
-<!--                android:textAlignment="textEnd"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="17sp" />-->
-<!--        </RelativeLayout>-->
+        <!--            <EditText-->
+        <!--                android:id="@+id/PTTT"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginEnd="5dp"-->
+        <!--                android:layout_toEndOf="@id/PhuongThucThanhToan"-->
+        <!--                android:backgroundTint="@color/white"-->
+        <!--                android:fontFamily="@font/svn_aleo"-->
+        <!--                android:paddingTop="15dp"-->
+        <!--                android:paddingBottom="11dp"-->
+        <!--                android:text="Tiền mặt"-->
+        <!--                android:textAlignment="textEnd"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="17sp" />-->
+        <!--        </RelativeLayout>-->
 
         <ListView
             android:id="@+id/vouchers"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:background="@color/white" />
 
 

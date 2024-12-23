@@ -44,8 +44,11 @@ public class TrangXemDHdamua extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        getSupportActionBar().hide();
         sharedPreferences= getSharedPreferences("com.example.sharedprerences", Context.MODE_PRIVATE);
         String myId = sharedPreferences.getString("id", "-1");
+
+
 
         usersRef = FirebaseDatabase.getInstance().getReference("Invoices");
         listView=findViewById(R.id.user_invoices);

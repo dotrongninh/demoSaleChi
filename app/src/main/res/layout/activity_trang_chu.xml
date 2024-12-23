@@ -59,7 +59,7 @@
                         android:layout_marginTop="30dp"
                         android:layout_toEndOf="@id/edit_text_search_value"
                         android:gravity="end"
-                        android:text="dotrongninhdz"
+                        android:text="USER"
                         android:textColor="#FFFDE7"
                         android:textSize="24sp" />
                 </RelativeLayout>

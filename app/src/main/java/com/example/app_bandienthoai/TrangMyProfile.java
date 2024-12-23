@@ -30,7 +30,7 @@ public class TrangMyProfile extends AppCompatActivity {
     EditText edHoTen,edSDT,edNgaySinh;
     TextView txtEmail,txtProFileName;
     ImageButton btEditThongTin;
-    Button btDonHangDaMua;
+    Button btDonHangDaMua,btDangxuat;
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,15 @@ public class TrangMyProfile extends AppCompatActivity {
        edNgaySinh =findViewById(R.id.textViewNgaySinh);
        btEditThongTin=findViewById(R.id.btEditThongTin);
        btDonHangDaMua = findViewById(R.id.btDonHangDaMua);
+      btDangxuat = findViewById(R.id.editKhuyenMai);
+
+      btDangxuat.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Intent i =new Intent(TrangMyProfile.this,TrangDangNhap.class);
+              startActivity(i);
+          }
+      });
 
        btDonHangDaMua.setOnClickListener(new View.OnClickListener() {
            @Override

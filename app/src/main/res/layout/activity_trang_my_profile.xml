@@ -255,6 +255,7 @@
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="20dp" />
+
         <Button
             android:id="@+id/editKhuyenMai"
             android:layout_width="match_parent"
@@ -267,7 +268,7 @@
             android:paddingStart="20dp"
             android:paddingTop="7dp"
             android:paddingBottom="7dp"
-            android:text="Khuyến mãi hot"
+            android:text="Đăng xuất"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="20dp" />

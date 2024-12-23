@@ -217,7 +217,7 @@ public class TrangDuyetMotDonHang extends AppCompatActivity {
         btDuyet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                  usersRef.child("is_validate").setValue(true);
+                  usersRef.child("is_validate").setValue(true); finish();
             }
         });
         btXoa.setOnClickListener(new View.OnClickListener() {
